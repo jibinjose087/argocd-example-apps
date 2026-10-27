@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: team-a
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: team-a-guestbook
+  namespace: argocd
+spec:
+  project: team-a
+  source:
+    repoURL: https://github.com/jibinjose087/argocd-example-apps.git
+    targetRevision: topic-08-projects
+    path: team-a
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: team-a
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
