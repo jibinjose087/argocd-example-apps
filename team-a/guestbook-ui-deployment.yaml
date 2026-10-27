@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/jibinjose087/argocd-example-apps.git
     targetRevision: topic-08-projects
-    path: team-a
+    path: guestbook
   destination:
     server: https://kubernetes.default.svc
     namespace: team-a
